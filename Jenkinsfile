@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+               sh 'docker.compose start'
                sh 'mvn -B -DskipTests clean package'
             }
         }
