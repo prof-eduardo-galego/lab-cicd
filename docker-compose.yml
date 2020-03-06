@@ -2,8 +2,6 @@ version: '3'
 services:
   api-layer:
     build: .
-    environment:
-      - SPRING_DATA_MONGODB_URI=mongodb://persistence-layer:27017/db_tasks
     container_name: taskapp-api
     ports:
       - 8081:8081
@@ -15,7 +13,7 @@ services:
       - persistence-layer
   persistence-layer:
     image: mongo
-    container_name: taskapp-mongodb
+    container_name: mongodb
     ports:
       - 27017:27017
     command: mongod --logpath=/dev/null # --quiet
