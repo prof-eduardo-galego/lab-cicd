@@ -1,15 +1,15 @@
 pipeline {
+    agent any
+
+    tools {
+        maven 'maven-3.6.3'
+        jdk 'jdk-8'
+    }
+
     stages {
-        stage("Build") {
-            agent {
-                docker {
-                    image 'maven:3-alpine'
-                    args '-v /root/.m2:/root/.m2'
-                }
-            }
+        stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
-                stash includes: 'target/*.jar', name: 'targetfiles'
+               sh 'mvn -B -DskipTests clean package'
             }
         }
     }
