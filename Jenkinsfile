@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-        stage ('Deploy to DEV using SSH') {
+        stage('Deploy to DEV using SSH') {
 //             when {
 //                 branch 'master'
 //             }
