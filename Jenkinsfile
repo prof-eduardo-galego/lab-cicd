@@ -13,12 +13,12 @@ pipeline {
                   image: 'maven:alpine'
                   command:
                   - cat
-                    tty: true
+                  tty: true
                 - name: busybox
                   image: busybox
                   command:
                   - cat
-                    tty: true
+                  tty: true
             """.stripIndent()
         }
     }
