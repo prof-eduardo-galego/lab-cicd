@@ -14,11 +14,6 @@ pipeline {
                   command:
                   - cat
                   tty: true
-                - name: busybox
-                  image: busybox
-                  command:
-                  - cat
-                  tty: true
             """.stripIndent()
         }
     }
@@ -26,8 +21,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               sh 'mvn -B -DskipTests clean package'
-               archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                container('maven') {
+                    sh 'mvn -B -DskipTests clean package'
+                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                }
             }
         }
     }
