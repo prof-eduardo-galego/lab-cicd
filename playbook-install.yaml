@@ -14,7 +14,7 @@
   
   - name: "Copy jar application"
     copy:
-      src: "lab-cicd-0.0.1-SNAPSHOT.jar"
+      src: "target/lab-cicd-0.0.1-SNAPSHOT.jar"
       dest: "./lab-cicd-0.0.1-SNAPSHOT.jar"
       mode: "u+x"
 
